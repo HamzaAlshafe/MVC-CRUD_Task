@@ -1,0 +1,31 @@
+﻿@model Product
+<h1>Add a product</h1>
+
+<form method="post" action="/products/store">
+    <input asp-for="Id" type="hidden" />
+    <div>
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" name="Name" value="@Model.Name"/>
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" name="Description" value="@Model.Description" />
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control" name="Price" value="@Model.Price" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div>
+        <label asp-for="rate" class="form-label">rate</label>
+        <input asp-for="rate" class="form-control" name="rate" value="@Model.rate" />
+        <span class="text-danger" asp-validation-for="rate"></span>
+    </div>
+    <div>
+        <br />
+        <button type="submit" class="btn btn-success">Add</button>
+    </div>
+
+</form>
