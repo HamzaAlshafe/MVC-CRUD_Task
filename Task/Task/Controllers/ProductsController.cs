@@ -32,5 +32,26 @@ namespace Task.Controllers
             
         }
 
+        public IActionResult Edit(int id)
+        {
+            var product = context.products.Find(id);
+            return View(product);
+        }
+
+        public IActionResult Update(Product request)
+        {
+            if (ModelState.IsValid)
+            {
+                context.products.Update(request);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Edit", request);
+            }
+            
+        }
+
     }
 }
