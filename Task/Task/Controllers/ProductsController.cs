@@ -53,5 +53,18 @@ namespace Task.Controllers
             
         }
 
+        public IActionResult Delete(int id) {
+            var product = context.products.Find(id);
+            context.products.Remove(product);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            var product = context.products.Find(id);
+            return View(product);
+        }
+
     }
 }
